@@ -1,0 +1,42 @@
+GET http://localhost:8080/api/todos?page=0&size=10
+content-type: application/json
+
+### Create Todo
+POST http://localhost:8080/api/todos
+content-type: application/json
+
+{
+    "title": "Pasear al Perro",
+    "description": "Tengo que sacar al perro para que no haga pipi dentro de la casa",
+    "targetDate": "2024-01-04",
+    "isDone": false
+}
+
+### Get Todo by id
+GET http://localhost:8080/api/todos/2
+Content-Type: application/json
+
+### Update Todo by id
+
+PUT http://localhost:8080/api/todos/2
+Content-Type: application/json
+
+{
+    "title": "Pasear al Gato",
+    "description": "Tengo que llevar al gato a la veterinaria",
+    "targetDate": "2024-01-10",
+    "isDone": false
+}
+
+### Update Partial Todo
+PATCH http://localhost:8080/api/todos/2
+Content-Type: application/json
+
+{
+    "isDone": true
+}
+
+
+### Delete Todo
+
+DELETE http://localhost:8080/api/todos/19
