@@ -30,7 +30,7 @@ public class TodoService {
         List<TodoResponse> responses = todos.stream().map(todo -> mapper.mapData(TodoResponse.class, todo)).toList();
 
         return TodoPaginationResponse.builder()
-                .todos(responses)
+                .content(responses)
                 .pageNumber(todos.getPageable().getPageNumber())
                 .pageSize(todos.getPageable().getPageSize())
                 .totalPages(todos.getTotalPages())

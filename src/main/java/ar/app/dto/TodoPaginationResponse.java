@@ -6,7 +6,7 @@ import java.util.List;
 
 @Builder
 public record TodoPaginationResponse(
-        List<TodoResponse> todos,
+        List<TodoResponse> content,
         Integer pageNumber,
         Integer pageSize,
         Integer totalPages,
