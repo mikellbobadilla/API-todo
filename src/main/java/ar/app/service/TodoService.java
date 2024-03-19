@@ -22,6 +22,11 @@ public class TodoService {
     private final ObjectMapper mapper;
 
     public TodoPaginationResponse findAll(int page, int size) {
+        --page;
+
+        if (page < 0) {
+            throw new RuntimeException("Page cannot be less than 1");
+        }
 
         Sort sort = Sort.by(Sort.Direction.ASC, "id");
 
@@ -31,10 +36,12 @@ public class TodoService {
 
         return TodoPaginationResponse.builder()
                 .content(responses)
-                .pageNumber(todos.getPageable().getPageNumber())
+                .pageNumber(todos.getPageable().getPageNumber() + 1)
                 .pageSize(todos.getPageable().getPageSize())
                 .totalPages(todos.getTotalPages())
                 .totalElements(todos.getTotalElements())
+                .hasNext(todos.hasNext())
+                .hasPrevious(todos.hasPrevious())
                 .build();
     }
 

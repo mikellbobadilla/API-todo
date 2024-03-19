@@ -18,7 +18,7 @@ public class TodoController {
 
     @GetMapping
     public ResponseEntity<TodoPaginationResponse> findAll(
-            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
         return ResponseEntity.ok(service.findAll(page, size));

@@ -10,7 +10,9 @@ public record TodoPaginationResponse(
         Integer pageNumber,
         Integer pageSize,
         Integer totalPages,
-        Long totalElements
+        Long totalElements,
+        boolean hasNext,
+        boolean hasPrevious
 
 ) {
 }
